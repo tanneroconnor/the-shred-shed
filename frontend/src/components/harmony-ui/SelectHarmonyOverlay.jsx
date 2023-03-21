@@ -1,12 +1,10 @@
 import React from 'react'
-import {Button, Group, Modal, SegmentedControl} from "@mantine/core";
+import {Button, Group, Modal} from "@mantine/core";
 import {useDisclosure} from "@mantine/hooks";
-import {getHarmonyName, getHarmonyType} from "../dataFunctions.js";
-import scaleImage from "../assets/scale.png";
-import triadImage from "../assets/triad.png";
-import seventhChordImage from "../assets/seventh-chord.png";
+import {getHarmonyName, getHarmonyType} from "../../dataFunctions.js";
+import {IconMenu2} from "@tabler/icons-react";
+import "../../App.css"
 
-import "../App.css"
 
 export default function SelectHarmonyOverlay(props) {
 
@@ -41,7 +39,7 @@ export default function SelectHarmonyOverlay(props) {
     createSelectHarmonyFields();
 
     function selectHarmonyButtonText() {
-        const harmonyName = getHarmonyName(props.harmonyData, props.harmony);
+        const harmonyName = props.currentRootAndHarmony;
         const harmonyType = getHarmonyType(props.harmonyData, props.harmony);
 
         let harmonyButtonText = harmonyName;
@@ -63,7 +61,6 @@ export default function SelectHarmonyOverlay(props) {
                     <div className="select-harmony-overlay-column">
                         <div className="select-harmony-overlay-column-title">
                             <h2>Scales</h2>
-                            <img src={scaleImage} alt="whole notes ascending"/>
                         </div>
                         <Button.Group orientation="vertical">
                             {scales}
@@ -73,7 +70,6 @@ export default function SelectHarmonyOverlay(props) {
                     <div className="select-harmony-overlay-column">
                         <div className="select-harmony-overlay-column-title">
                             <h2>Triads</h2>
-                            <img src={triadImage} alt="three whole notes stacked on top of each other"/>
                         </div>
                         <Button.Group orientation="vertical">
                             {triads}
@@ -82,10 +78,7 @@ export default function SelectHarmonyOverlay(props) {
                     <div className="select-harmony-overlay-column">
                         <div className="select-harmony-overlay-column-title">
                             <h2>Seventh Chords</h2>
-
                         </div>
-                        <img src={seventhChordImage} alt="four whole notes stacked on top of each other"/>
-
                         <Button.Group orientation="vertical">
                             {seventhChords}
                         </Button.Group>
@@ -96,6 +89,7 @@ export default function SelectHarmonyOverlay(props) {
 
             <Group position="center">
                 <Button
+                    leftIcon={<IconMenu2 />}
                     onClick={open}
                     variant="filled">
                     {selectHarmonyButtonText()}

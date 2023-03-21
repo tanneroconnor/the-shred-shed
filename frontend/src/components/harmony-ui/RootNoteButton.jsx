@@ -1,6 +1,6 @@
-import {rootButtonHeight, rootButtonWidth} from "../../appConfig.js";
+import {rootButtonHeight, rootButtonWidth} from "./constants.js";
 
-export default function RootButton(props) {
+export default function RootNoteButton(props) {
 
     const isSelected = props.noteName === props.selectedRootNote;
 

@@ -1,0 +1,75 @@
+/* =========================
+    MUSIC THEORY CALCULATOR
+========================= */
+
+.amp {
+    margin: 1px auto;
+    width: 450px;
+    height: 800px;
+    border-radius: 20px;
+    padding-top: 1px;
+    color: black
+}
+
+.amp-head {
+    width: 400px;
+    height: 200px;
+    margin: 20px auto 0 auto;
+    border-radius: 10px;
+    background-color: #333;
+    border: 1px solid #222222;
+    text-align: center;
+    font-family: "Roboto", serif;
+    font-size: 1.5rem;
+}
+
+.amp-head-plate {
+    width: 375px;
+    height: 50px;
+    margin: 12px auto 0 auto;
+    background-color: rgb(159 147 117 / 90%);
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.amp-head-trim {
+    width: 375px;
+    height: 110px;
+    margin: 15px auto 0 auto;
+    border-radius: 4px;
+    border: 2px solid white;
+}
+
+.amp-cab-trim {
+    width: 375px;
+    height: 520px;
+    margin: 15px auto 0 auto;
+    border-radius: 4px;
+    border: 2px solid white;
+    padding: 10px;
+}
+
+.amp-cab {
+    width: 400px;
+    height: 550px;
+    margin: 10px auto 30px auto;
+    border-radius: 10px;
+    background-color: #333;
+    border: 1px solid #222222;
+}
+
+.amp-screen {
+    color: #212121;
+    padding: 10px;
+}
+
+.note-names-on-screen {
+    font-family: "Roboto Medium", sans-serif;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.scale-degrees-on-screen {
+    font-family: "Roboto Light", sans-serif;
+    color: #212121;
+}

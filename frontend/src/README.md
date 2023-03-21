@@ -41,5 +41,20 @@ Here are some GIFs demonstrating the functionality of the Music Theory Calculato
 #### Dark Mode Toggle:
 ![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzg3OTkwYzI4Mzk2N2E3ZTE0MGMwZTE5YWI0YzJiMGVkNjg0NThjMyZjdD1n/fn1dOjnqa52lJu2ABB/giphy.gif)
 
+## Getting Started
+To get started, clone this repository and run the following commands in your terminal:
+
+```bash
+cd the-shred-shed
+```
+```bash
+./mvnw clean package
+```
+```bash
+java -jar target/the-shred-shed.jar
+```
+
+Then, open your web browser and navigate to http://localhost:8080 to access the site.
+
 ## License
 This project is licensed under the MIT License.

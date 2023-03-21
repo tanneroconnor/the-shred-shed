@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+
 import "./guitar-neck-styles.css";
 
 function FretMarker(props) {
-  // State
-  const [isHidden, setIsHidden] = useState(props.isHidden);
-  const noteName = props.noteName.toString();
 
-  // CSS Classes
-  const fretClassName = 'fret-' + props.fretNumber;
-  const stringClassName = 'string-' + props.stringNumber;
-  const isHiddenClassName = isHidden ? `hidden` : ``;
-  const classNames = `fret-marker ${stringClassName} ${fretClassName} ${isHiddenClassName}`;
+  const isHidden = props.visible ? `hidden` : '';
+  const fretMarkerClasses = `fret-marker 
+                      fret-${props.fretNumber} 
+                      string-${props.stringNumber} 
+                      ${isHidden}`;
 
-  return (
-  <div className={classNames}>{noteName}</div>
-  )
+  const fretMarkerColor = {
+      backgroundColor: props.isDarkMode ? "#23a559" : "black",
+      color: props.isDarkMode ? "black" : "white"
+  }
+
+  return <div className={fretMarkerClasses} style={fretMarkerColor}>
+            {props.label}
+        </div>
 }
 
 export default FretMarker;

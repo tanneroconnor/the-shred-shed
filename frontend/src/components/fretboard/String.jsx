@@ -1,28 +1,24 @@
-import React, { useState } from "react";
-import {NUMBER_OF_FRETS, NUMBER_OF_STRINGS} from "../constants";
-import "./guitar-neck-grid-areas.css";
+import React from "react";
+import "./guitar-neck-grid.scss";
 
 
-function String(props) {
+export default function String(props) {
 
-    // CSS
-    const centerHrClassName = "center-hr";
-    const stringAreaClassName = "string-" + props.stringNumber + "-area";
-    const classNames = `${centerHrClassName} ${stringAreaClassName}`;
-    
 
-    // Generate Six String Components
-    const strings = [];
+    const stringLengthStyle = {
+        gridRow: props.stringNumber,
+        gridRowStart: props.stringNumber,
+        gridColumnStart: 1,
+        gridColumnEnd: props.numberOfFrets + 2,
 
-    for (let i = 1; i <= NUMBER_OF_STRINGS; i++) {
-        strings.push(<String key={i} stringNumber={i} />);
     }
- 
+    const stringColor = {
+        border: props.isDarkMode ? "2px solid #5f6368" : "2px solid black"
+    }
+
     return (
-        <div className={classNames}>
-            <hr />
+        <div style={stringLengthStyle} className={'center-hr'}>
+            <hr style={stringColor}/>
         </div>
     )
 }
-
-export default String;

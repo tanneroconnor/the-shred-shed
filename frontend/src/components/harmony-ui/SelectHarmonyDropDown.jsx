@@ -1,6 +1,6 @@
 import {Select} from '@mantine/core';
 
-export default function MenuHarmonySelect(props) {
+export default function SelectHarmonyDropDown(props) {
 
     function createSelectFieldElements() {
         let selectFields = [];

@@ -1,0 +1,151 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  margin-left: 20px;
+}
+
+h3 {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.page-title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/*===============
+   APP HEADER
+===============*/
+
+.header-container {
+  display: flex;
+  color: darkgray;
+  height: 75px;
+  padding: 20px;
+  align-items: center;
+}
+
+.dark-mode-toggle {
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.dark-mode-hover-text {
+  text-align: center;
+}
+
+/*====================
+   ROOT NOTE BUTTONS
+====================*/
+
+.root-menu-container {
+  padding: 0 10px;
+}
+
+.root-button-container {
+  display: flex;
+}
+
+.root-note-button-circle {
+  min-height: 38px;
+  max-width: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Raleway ExtraBold", serif;
+}
+
+.root-note-button-square {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-weight: 600;
+  min-height: 38px;
+  max-width: 38px;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0.0625rem solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: left;
+  color: #000;
+  text-decoration: none;
+  box-sizing: border-box;
+  height: 2.25rem;
+  padding-left: 1.125rem;
+  padding-right: 1.125rem;
+  width: auto;
+  position: relative;
+  line-height: 1;
+  font-size: 0.875rem;
+}
+
+.root-note-button-spacer {
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
+}
+
+
+
+/* ========================
+    HARMONY SELECT OVERLAY
+======================== */
+
+.select-harmony-overlay {
+  display: flex;
+  flex-direction: row;
+}
+
+.select-harmony-overlay-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-width: 200px;
+}
+
+.select-harmony-overlay-column-title {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  margin-bottom: 10px;
+}
+
+.fretboard-user-interface-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.fretboard-user-interface-title {
+  margin-bottom: 20px;
+}
+
+.fretboard-root-note-select-container {
+  padding: 0;
+}

@@ -1,0 +1,76 @@
+/*
+===============
+   HOW TO USE
+===============
+This file generates the css classes for grid placement for the FretBoard.
+
+Grid Structure:
+    - Row Number (String number where: 1 is the first string, 2 is the second string, etc.)
+    - Column Number (fret number where: 0 is the open string / nut, 1 is the first fret, 2 is the second fret, etc.)
+
+
+    Example 1: className="string-1 fret-2"
+    ======================================
+    - "string-1" indicates the first string
+    - "fret-2" indicates the second fret
+
+    When applying both css class we're indicating the first string, 2nd fret of the guitar neck grid (row 1, col 3)
+
+    Example 2: className="string-6 fret-0"
+    ======================================
+    - "string-6" indicates the 6th string of the guitar, or the 6th row of the grid.
+    - "fret-0" indicates the open string to the left of the nut of the guitar diagram
+
+    Applying both classes specifies the 6th string in the open position (at the nut of the guitar)
+
+
+
+    Example 3: <String className="string-1-entire-row" />
+    ===================================================
+    A String, represented by a horizontal rule, takes up one row, and the entire length of the guitar.
+    In addition to defining each row and column in an X by X grid, we need to define the length of the string.
+
+    In this example "string-1-entire-row" indicates that the horizontal rule is in the first row,
+      and extends to the end of the guitar neck.
+
+*/
+
+
+/*  ===============
+       VARIABLES
+    =============== */
+
+$number-of-strings: 6;
+$number-of-frets: 12;
+$max-number-of-frets: 24;
+
+
+/*  ==========================
+    Six Strings - Row Position
+    ========================== */
+
+@for $i from 1 through $number-of-strings {
+  .string-#{$i} {
+    grid-row: #{$i};
+  }
+
+  .string-#{$i}-entire-row {
+    grid-row-start: #{$i};
+    grid-column-start: 1;
+    grid-column-end: $number-of-frets + 2;
+  }
+}
+
+/*  ============================
+      24 Frets - Column Position
+    ============================ */
+@for $i from 0 through $max-number-of-frets {
+  .fret-#{$i} {
+    grid-column: #{$i + 1};
+  }
+
+  .fret-#{$i}-entire-column {
+    grid-row: 1 / 7;
+    grid-column: #{$i + 1} / #{$i + 2};
+  }
+}

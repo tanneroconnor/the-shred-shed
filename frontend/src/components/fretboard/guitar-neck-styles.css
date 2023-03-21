@@ -1,17 +1,9 @@
-:root {
-    --NUMBER_OF_FRETS: 20;
-    --NUMBER_OF_STRINGS: 6;
-    --FRET_INLAY_COLOR: lightgrey;
-}
-
 .grid-container {
     margin: 10px auto;
     width: 99vw;
     height: 16.66vw;
     display: grid;
-    grid-template-columns: repeat(--NUMBER_OF_FRETS, auto);
-    grid-template-rows: repeat(NUMBER_OF_STRINGS, auto);
-    column-gap: 0px;
+    column-gap: 0;
     row-gap: 10px;
 }
 
@@ -38,15 +30,14 @@ hr {
     height: 87%;
 }
 
-.nut {
-    border-right: .35rem solid black;
-}
-
 .fret-marker {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-weight: 700;
+    font-size: .9vw;
     background-color: black;
     display: inline;
-    height: 1.6vw;
-    width: 1.6vw;
+    height: 1.7vw;
+    width: 1.7vw;
     border-radius: 50%;
     justify-self: center;
     align-self: center;
@@ -54,6 +45,8 @@ hr {
     text-align: center;
     vertical-align: middle;
     color: #ffffff;
+    padding: .15rem;
+    user-select: none;
 }
 
 .hidden {

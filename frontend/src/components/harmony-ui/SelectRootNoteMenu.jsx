@@ -1,7 +1,7 @@
 import {Grid} from '@mantine/core';
-import RootButton from "./RootButton.jsx";
+import RootNoteButton from "./RootNoteButton.jsx";
 
-export default function MenuRootSelect(props) {
+export default function SelectRootNoteMenu(props) {
 
 
     const rootNotes = ['A#', '' , 'C#', 'D#',  '' , 'F#', 'G#',
@@ -16,7 +16,7 @@ export default function MenuRootSelect(props) {
     const rootNoteButtons = rootNotes.map((rootNote, index) => {
         return (
             <Grid.Col span={2}>
-                <RootButton
+                <RootNoteButton
                     selectedColor={props.selectedColor}
                     variant={props.variant}
                     isDarkMode={props.isDarkMode}
