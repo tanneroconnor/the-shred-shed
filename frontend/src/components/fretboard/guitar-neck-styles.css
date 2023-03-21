@@ -1,0 +1,63 @@
+:root {
+    --NUMBER_OF_FRETS: 20;
+    --NUMBER_OF_STRINGS: 6;
+    --FRET_INLAY_COLOR: lightgrey;
+}
+
+.grid-container {
+    margin: 10px auto;
+    width: 99vw;
+    height: 16.66vw;
+    display: grid;
+    grid-template-columns: repeat(--NUMBER_OF_FRETS, auto);
+    grid-template-rows: repeat(NUMBER_OF_STRINGS, auto);
+    column-gap: 0px;
+    row-gap: 10px;
+}
+
+.center-hr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+hr {
+    margin: 0;
+    border: 2px solid black;
+    width: 100%;
+    z-index: 1;
+}
+
+.fret {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-self: center;    
+    border-right: .2rem solid black;
+    height: 87%;
+}
+
+.nut {
+    border-right: .35rem solid black;
+}
+
+.fret-marker {
+    background-color: black;
+    display: inline;
+    height: 1.6vw;
+    width: 1.6vw;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+    z-index: 2;
+    text-align: center;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+
