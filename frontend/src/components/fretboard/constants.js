@@ -51,3 +51,7 @@ export const NOTE_NAME_TO_PITCH_CLASS = {
     'Cb': 11,
     'A##': 11
 }
+
+export const MAJOR_MODES = [
+    "ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"
+]
