@@ -4,36 +4,59 @@ import {useDisclosure} from "@mantine/hooks";
 import {getHarmonyName, getHarmonyType} from "../../dataFunctions.js";
 import {IconMenu2} from "@tabler/icons-react";
 import "../../App.css"
+import {MAJOR_MODES} from "../fretboard/constants.js";
 
 
 export default function SelectHarmonyOverlay(props) {
 
     const [opened, { open, close }] = useDisclosure(false);
 
+    // Button Columns in Harmony Overlay
     let triads = [];
     let seventhChords = [];
     let scales = [];
+    let majorModes = [];
 
     function createSelectHarmonyFields() {
         if (props.harmonyData) {
-            for(const harmony in props.harmonyData) {
+            for(const currentHarmony in props.harmonyData) {
 
-                const currentHarmonyType = getHarmonyType(props.harmonyData, harmony);
-                const currentHarmonyName = getHarmonyName(props.harmonyData, harmony);
+                const currentHarmonyType = getHarmonyType(props.harmonyData, currentHarmony);
+                const currentHarmonyName = getHarmonyNameForHarmonyButton(currentHarmony);
 
                 const currentButton = (
                         <Button
-                            variant={props.harmony === harmony ? "filled" : "default"}
-                            onClick={() => props.handleHarmonyChange(harmony)}>
+                            variant={props.harmony === currentHarmony ? "filled" : "default"}
+                            onClick={() => props.handleHarmonyChange(currentHarmony)}>
                             {currentHarmonyName}
                         </Button>
                 )
 
-                if (currentHarmonyType === 'Triad') {triads.push(currentButton)}
-                else if (currentHarmonyType === 'Seventh Chord') {seventhChords.push(currentButton)}
-                else {scales.push(currentButton)}
+                addButtonToHarmonyArray(currentHarmonyType, currentHarmony, currentButton);
+
             }
         }
+    }
+
+    function getHarmonyNameForHarmonyButton(harmony) {
+        let harmonyName = getHarmonyName(props.harmonyData, harmony);
+
+        // To clarify for users who are less comfortable with the modal names for the Major and Minor scale.
+        if (harmonyName === "Ionian") {harmonyName += " (Major Scale)"}
+        else if (harmonyName === "Aeolian") {harmonyName += " (Minor Scale)"}
+
+        return harmonyName;
+    }
+
+    function addButtonToHarmonyArray(harmonyType, harmony, button) {
+        const isTriad = harmonyType === 'Triad';
+        const isSeventhChord = harmonyType === 'Seventh Chord';
+        const isMajorMode = (MAJOR_MODES.includes(harmony));
+
+        if (isTriad) {triads.push(button)}
+        else if (isSeventhChord) {seventhChords.push(button)}
+        else if (isMajorMode) {majorModes.push(button)}
+        else {scales.push(button)}
     }
 
     createSelectHarmonyFields();
@@ -60,7 +83,17 @@ export default function SelectHarmonyOverlay(props) {
                 <div className="select-harmony-overlay">
                     <div className="select-harmony-overlay-column">
                         <div className="select-harmony-overlay-column-title">
-                            <h2>Scales</h2>
+                            <h2>Major Modes</h2>
+                        </div>
+                        <div>
+                            <Button.Group orientation="vertical">
+                                {majorModes}
+                            </Button.Group>
+                        </div>
+                    </div>
+                    <div className="select-harmony-overlay-column">
+                        <div className="select-harmony-overlay-column-title">
+                            <h2>Other Scales</h2>
                         </div>
                         <Button.Group orientation="vertical">
                             {scales}
