@@ -57,11 +57,6 @@ export default function Fretboard(props) {
                     isDarkMode={props.isDarkMode}
                     stringNumber={stringNumber}
                     fretNumber={fretNumber}
-                    pitchClass={currentPitchClass}
-                    currentHarmony={props.currentHarmony}
-                    harmonyData={props.harmonyData}
-                    harmonyName={props.harmonyName}
-                    root={props.rootNote}
                     label={currentLabel}
                     visible={!currentFretMarkerInHarmony}/>);
             }
