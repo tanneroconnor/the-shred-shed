@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Compiled Frontend Code Location ###
+/src/main/resources/static/dist
+
 ### STS ###
 .apt_generated
 .classpath
