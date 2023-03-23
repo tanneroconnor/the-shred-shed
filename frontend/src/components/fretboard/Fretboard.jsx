@@ -1,12 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./guitar-neck-styles.css";
 
-import {
-    NOTE_NAME_TO_PITCH_CLASS,
-    NUMBER_OF_STRINGS,
-    PITCH_CLASS_TO_NOTE_NAME,
-    STANDARD_TUNING
-} from "./constants.js";
+import {NOTE_NAME_TO_PITCH_CLASS, PITCH_CLASS_TO_NOTE_NAME, STANDARD_TUNING} from "./constants.js";
 
 import FretMarker from "./FretMarker";
 import String from "./String";
@@ -34,34 +29,42 @@ export default function Fretboard(props) {
             const openStringPitchClass = NOTE_NAME_TO_PITCH_CLASS[openStringNoteName];
 
             for (let fretNumber = 0; fretNumber <= numberOfFrets - 1; fretNumber++) {
-                const currentPitchClass = (openStringPitchClass + fretNumber) % 12;
+                const pitchClass = (openStringPitchClass + fretNumber) % 12;
                 const notesInHarmony = getNotes(props.harmonyData, props.harmony, props.rootNote);
-                const harmonyPitchClassArray = notesInHarmony.map(note => NOTE_NAME_TO_PITCH_CLASS[note]);
 
-                // Calculate Current Note Name
-                const currentFretMarkerInHarmony = harmonyPitchClassArray.includes(currentPitchClass);
-                const currentNoteName = PITCH_CLASS_TO_NOTE_NAME[currentPitchClass].find(note => notesInHarmony.includes(note));
-
-                // Calculate Current Scale Degree
-                const currentScaleDegree = getScaleDegrees(props.harmonyData, props.harmony)[notesInHarmony.indexOf(currentNoteName)];
-
-                let currentLabel;
-
-                if (labelType === 'scaleDegrees') {currentLabel = currentScaleDegree}
-                else if (labelType === 'noteNames') {currentLabel = currentNoteName}
-                else if (labelType === 'rootNotes') {currentLabel = (currentScaleDegree === '1') ? 'R' : ""}
-                else {currentLabel = ""}
+                const isFretMarkerVisible = isNoteInHarmony(pitchClass, notesInHarmony);
+                const noteLabel = isFretMarkerVisible ? getNoteLabel(pitchClass, notesInHarmony) : "";
 
                 fretMarkers.push(<FretMarker
                     key={`${stringNumber}-${fretNumber}`}
                     isDarkMode={props.isDarkMode}
                     stringNumber={stringNumber}
                     fretNumber={fretNumber}
-                    label={currentLabel}
-                    visible={!currentFretMarkerInHarmony}/>);
+                    label={noteLabel}
+                    isVisible={isFretMarkerVisible}/>);
             }
         }
         return fretMarkers;
+    }
+
+    function isNoteInHarmony(pitchClass, notesInHarmony) {
+        const harmonyPitchClassArray = notesInHarmony.map(note => NOTE_NAME_TO_PITCH_CLASS[note]);
+        return harmonyPitchClassArray.includes(pitchClass);
+    }
+
+    function getNoteLabel(pitchClass, notesInHarmony) {
+
+        const currentNoteName = PITCH_CLASS_TO_NOTE_NAME[pitchClass].find(note => notesInHarmony.includes(note));
+        const currentScaleDegree = getScaleDegrees(props.harmonyData, props.harmony)[notesInHarmony.indexOf(currentNoteName)];
+
+        let currentLabel;
+
+        if (labelType === 'scaleDegrees') {currentLabel = currentScaleDegree}
+        else if (labelType === 'noteNames') {currentLabel = currentNoteName}
+        else if (labelType === 'rootNotes') {currentLabel = (currentScaleDegree === '1') ? 'R' : ""}
+        else {currentLabel = ""}
+
+        return currentLabel;
     }
 
     function createGridStrings() {

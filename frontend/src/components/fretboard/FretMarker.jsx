@@ -4,7 +4,7 @@ import "./guitar-neck-styles.css";
 
 function FretMarker(props) {
 
-  const isHidden = props.visible ? `hidden` : '';
+  const isHidden = props.isVisible ? '' : 'hidden';
   const fretMarkerClasses = `fret-marker 
                       fret-${props.fretNumber} 
                       string-${props.stringNumber} 
