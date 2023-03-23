@@ -15,12 +15,12 @@ export default function SelectRootNoteMenu(props) {
 
     const rootNoteButtons = rootNotes.map((rootNote, index) => {
         return (
-            <Grid.Col span={2}>
+            <Grid.Col span={2} key={index}>
                 <RootNoteButton
                     selectedColor={props.selectedColor}
                     variant={props.variant}
                     isDarkMode={props.isDarkMode}
-                    key={index}
+                    key={rootNote}
                     selectedRootNote={props.rootNote}
                     noteName={rootNote}
                     handleClick={handleClick}
