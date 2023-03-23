@@ -26,6 +26,7 @@ export default function SelectHarmonyOverlay(props) {
 
                 const currentButton = (
                         <Button
+                            key={currentHarmonyName}
                             variant={props.harmony === currentHarmony ? "filled" : "default"}
                             onClick={() => props.handleHarmonyChange(currentHarmony)}>
                             {currentHarmonyName}
