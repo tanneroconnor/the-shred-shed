@@ -1,15 +1,22 @@
-# The Shred Shed
-This music theory practice aid currently includes two tools: 
-- A Guitar Fretboard Visualizer
-- A Music Theory Calculator
+# The Shred Shed: A Music Practicing Web Application
+
+Introducing The Shred Shed - the ultimate web application for guitar enthusiasts! This dynamic tool is designed to help you visualize chords and scales on the guitar neck, while also providing a handy calculator for note names and scale degrees. Whether you're a beginner or an advanced player, The Shred Shed is the perfect companion to help you elevate your guitar skills and understanding of music theory. Get ready to rock and roll like never before with The Shred Shed!
+
+## Features
+The Shred Shed currently includes two powerful tools:
+
+- **Guitar Fretboard Visualizer:** This tool allows you to visualize chords and scale shapes on the guitar neck, making it easier to learn and practice complex chord shapes and scales.
+
+- **Music Theory Calculator:** This tool displays the note names and scale degrees of a selected chord or scale, helping you understand the theory behind the music you're playing.
 
 ## Technologies Used
-- Java 17: A programming language used to build the backend server-side code.
-- Spring Boot 3 & Spring Framework 6: A Java framework used to build web applications.
-- Maven: A Java build automation tool.
-- React.js: A JavaScript library used to build the frontend user interface.
-- Mantine: A collection of React components used to style the user interface.
-- Git: Version control system for managing source code history.
+- Java 17
+- Spring Boot 3 & Spring Framework 6
+- React.js
+- Mantine
+- HTML & CSS
+- Maven
+- Git
 
 ## Fretboard Visualizer
 Here are some GIFs demonstrating the functionality of the Fretboard Visualizer Tool:
